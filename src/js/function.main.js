@@ -31,7 +31,7 @@ soloLetras = (e) => {
     }
 }
 
-notifi = (data, icon) =>{
+notifi = (data, icon) => {
     $(function () {
         var Toast = Swal.mixin({
             toast: true,
@@ -43,5 +43,13 @@ notifi = (data, icon) =>{
             icon: icon,
             title: data
         })
+    })
+}
+
+alerta = (title, text) => {
+    Swal.fire({
+        icon: "error",
+        title: title,
+        text: text
     })
 }

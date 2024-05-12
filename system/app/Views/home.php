@@ -1,3 +1,5 @@
 <?= head($data) ?>
-<h1>home</h1>
+<div class="container p-5">
+    <?= dep($_SESSION['userData']) ?>
+</div>
 <?= footer($data) ?>

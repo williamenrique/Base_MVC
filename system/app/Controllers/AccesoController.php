@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 class Acceso extends Controllers{
 	public function __construct(){
 		session_start();
@@ -16,5 +17,38 @@ class Acceso extends Controllers{
 		$data['page_name'] = "acceso";
 		$data['page_functions'] = "function.login.js";
 		$this->views->getViews($this, "acceso", $data);
+	}
+	public function getAcceso(){
+		if($_POST){
+			if(empty($_POST['txtUser']) || empty($_POST['txtPass'])){
+				$arrResponse = array('status' => false, 'msg' => 'Debe llenar los campos');
+			}else{
+				$strUser = strtolower($_POST['txtUser']);
+				$strPass = encryption($_POST['txtPass']);
+				$requestUser = $this->model->loginUser($strUser,$strPass);
+				if(empty($requestUser)){
+					$arrResponse = array('status' => false, 'msg' => 'El usuario o el password es incorrecto');
+				}else{
+					$arrData = $requestUser;
+					if ($arrData['user_status'] == 1) {
+						$_SESSION['idUser'] = $arrData['user_id'];
+						$_SESSION['login'] = true;
+						$arrData = $this->model->sessionLogin($_SESSION['idUser']);
+						//creamos la variable de sesion mediante un helper
+						sessionUser($_SESSION['idUser']);
+						$strCodigo = "biCod-".$_SESSION['userData']['user_id']."-".codGenerator();
+						$_SESSION['strCodigo'] = $strCodigo;
+						$fecha = date('Y-m-d');
+						$strHoraInicio = date("g:i a");
+						// setTimeline($_SESSION['idUser'],$strCodigo,$fecha,$strHoraInicio);
+						$arrResponse = array('status' => true, 'msg' => 'ok');
+					}else{
+						$arrResponse = array('status' => false, 'msg' => 'El usuario inactivo');
+					}
+				}
+			}
+			echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+		}
+		die();
 	}
 }

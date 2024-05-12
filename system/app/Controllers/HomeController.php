@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 class Home extends Controllers{
 	public function __construct(){
 		session_start();
