@@ -20,7 +20,7 @@ if (document.querySelector('#formAcceso')) {
         request.send(formData)
         let button = document.querySelector('.box-button')
         button.innerHTML = ''
-        button.innerHTML = '<button type="submit" class="btn btn-primary btnIngresar disabled"><span class="spinner-border spinner-border-sm"></span>CARNADO</button>'
+        button.innerHTML = '<button type="submit" class="btn btn-primary btnIngresar disabled"><span class="spinner-border spinner-border-sm"></span>CARGANDO</button>'
         request.onreadystatechange =  () => {
             //validamos la respuesta del DOM
             // if (request.readyState != 4) return//no hacemos nada
@@ -34,12 +34,12 @@ if (document.querySelector('#formAcceso')) {
                     notifi( objData.msg, 'error')
                     document.querySelector('#txtPass').value = ""
                     button.innerHTML = ''
-                    button.innerHTML = '<button type="submit" class="btn btn-primary btnIngresar">INGRESAR</button>'
+                    button.innerHTML = '<button type="submit" class="btn btn-primary btnIngresar"> <i class="bx bx-radio-circle-marked"></i>INGRESAR</button>'
                 }
             } else {
                 notifi('Error en el proceso', 'error')
                 button.innerHTML = ''
-                button.innerHTML = '<button type="submit" class="btn btn-primary btnIngresar">INGRESAR</button>'
+                button.innerHTML = '<button type="submit" class="btn btn-primary btnIngresar"> <i class="bx bx-radio-circle-marked"></i>INGRESAR</button>'
             }
             return false
         }

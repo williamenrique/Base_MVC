@@ -1,3 +1,7 @@
+
+        </div>
+        <!-- end contenido principal -->
+    </div>
     <script>const base_url = "<?= base_url() ?>";</script>
     <script src="<?= PLUGINS_JS ?>jquery-3.7.1.js"></script>
     <script src="<?= PLUGINS_JS ?>sweetalert2@10.js"></script>
