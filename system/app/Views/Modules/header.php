@@ -31,19 +31,19 @@
                 <li class="list__item item_active">
                     <div class="list__button">
                         <i class='bx bx-home list_icon'></i>
-                        <a href="./index.html" class="nav__link">Inicio</a>
+                        <a href="<?= base_url() ?>" class="nav__link">Inicio</a>
                     </div>
                 </li>
                 <!-- desplegable -->
-                <li class="list__item list__item--click">
+                <!-- <li class="list__item list__item--click">
                     <div class="list__button button_click">
                         <i class='bx bx-key list_icon'></i>
                         <a href="#" class="nav__link">Autenticacion</a>
                         <i class='bx bx-chevron-right list__arrow'></i>
-                    </div>
+                    </div> -->
                     <!-- la lista que se desplegara -->
 
-                    <ul class="list__show">
+                    <!-- <ul class="list__show">
                         <li class="list__inside">
                             <i class='bx bx-radio-circle-marked'></i>
                             <a href="pages/login.html" target="_blank" class="nav__link nav__link--inside">Login</a>
@@ -59,27 +59,26 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
                 <!-- desplegable -->
-                <li class="list__item list__item--click">
+                <!-- <li class="list__item list__item--click">
                     <div class="list__button button_click">
                         <i class='bx bx-bar-chart-square list_icon'></i>
                         <a href="#" class="nav__link">Pages</a>
                         <i class='bx bx-chevron-right list__arrow'></i>
-                    </div>
+                    </div> -->
                     <!-- la lista que se desplegara -->
-                    <ul class="list__show">
+                    <!-- <ul class="list__show">
                         <li class="list__inside">
                             <i class='bx bx-radio-circle-marked'></i>
                             <a href="pages/404.html" target="_blank" class="nav__link nav__link--inside">404</a>
                         </li>
                     </ul>
-                </li>
-
+                </li> -->
             </ul>
         </div>
         <div class="footer-nav">
-            <a href="#">
+            <a href="<?= base_url()?>usuario/perfil">
                 <i class='bx bx-cog'></i>
             </a>
             <a href="<?= base_url()?>logout">
