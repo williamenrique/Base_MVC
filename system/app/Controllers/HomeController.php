@@ -12,6 +12,7 @@ class Home extends Controllers{
 	public function home(){
 		//invocar la vista con views y usamos getView y pasamos parametros esta clase y la vista
 		//incluimos un arreglo que contendra toda la informacion que se enviara al home
+		//TODO: VISTA
 		$data['page_tag'] = "Nombre de pagina";
 		$data['page_title'] = "Pagina Principal";
 		$data['page_name'] = "home";

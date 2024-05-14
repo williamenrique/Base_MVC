@@ -7,7 +7,7 @@
     <title><?=$data['page_name']?></title>
     <link rel="shortcut icon" href="<?= IMG ?>icon.png">
     <link rel="stylesheet" href="<?= PLUGINS_CSS ?>sweetalert2.css">
-    <link rel="stylesheet" href="<?= PLUGINS_CSS ?>bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="<?= PLUGINS_CSS ?>bootstrap.min.css"> -->
     <link rel="stylesheet" href="<?= CSS ?>custom.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
     <!-- navegacion lateral -->
     <section class="section-nav">
         <div class="head-nav">
-            <div class="img_user" style="background-image: url('<?= IMG ?>default.png');"></div>
+            <div class="img_user" style="background-image: url(../<?= $_SESSION['userData']['user_ruta'].'/'.$_SESSION['userData']['user_img'] ?>);"></div>
             <div class="info_user">
                 <h6 class="nameUser"><?= $_SESSION['userData']['user_nombres']. ' ' . $_SESSION['userData']['user_apellidos']  ?></h6>
                 <h6 class="emailUSer"><?= $_SESSION['userData']['user_email'] ?></h6>

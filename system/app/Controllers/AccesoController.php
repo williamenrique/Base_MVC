@@ -12,12 +12,14 @@ class Acceso extends Controllers{
 	public function acceso(){
 		//invocar la vista con views y usamos getViews y pasamos parametros esta clase y la vista
 		//incluimos un arreglo que contendra toda la informacion que se enviara al home
+		//TODO: vista
 		$data['page_tag'] = "Nombre de pagina";
 		$data['page_title'] = "Pagina Principal";
 		$data['page_name'] = "acceso";
 		$data['page_functions'] = "function.login.js";
 		$this->views->getViews($this, "acceso", $data);
 	}
+	/********* acceder en el login *********/
 	public function getAcceso(){
 		if($_POST){
 			if(empty($_POST['txtUser']) || empty($_POST['txtPass'])){

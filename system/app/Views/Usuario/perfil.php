@@ -1,6 +1,6 @@
 <?= head($data) ?>
     <!-- box-profile -->
-    <div class="container-fluid">
+    <div class="container">
         <section class="box box-profile">
             <div class="container">
                 <h3 class="title-box">
@@ -17,7 +17,7 @@
                                 <span class="search">
                                     <i class='bx bx-camera'></i>
                                 </span>
-                                <div class="thumbnail 0" data-id="0" style="background-image : url(<?= $_SESSION['userData']['user_img'] ?>)">
+                                <div class="thumbnail 0" data-id="0" style="background-image : url(../<?= $_SESSION['userData']['user_ruta'].'/'.$_SESSION['userData']['user_img']  ?>)">
                                 </div>
                             </div>
                             <div class="row">
@@ -34,59 +34,29 @@
                         <div class="row">
                             <div class="box-input">
                                 <label for="txtNombre">nombres</label>
-                                <input type="text" id="txtNombre" name="txtNombre">
+                                <input type="text" id="txtNombre" name="txtNombre" value="<?= $_SESSION['userData']['user_nombres']?>">
                             </div>
                             <div class="box-input">
                                 <label for="txtApellido">apellidos</label>
-                                <input type="text" id="txtApellido" name="txtApellido">
+                                <input type="text" id="txtApellido" name="txtApellido" value="<?= $_SESSION['userData']['user_apellidos']?>">
                             </div>
                             <div class="box-input">
                                 <label for="txtEmail">email</label>
-                                <input type="text" id="txtEmail" name="txtEmail">
+                                <input type="text" id="txtEmail" name="txtEmail" value="<?= $_SESSION['userData']['user_email']?>">
                             </div>
                             <div class="box-input">
                                 <label for="txtCi">Identificacion</label>
-                                <input type="text" id="txtCi" name="txtCi">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="box-input">
-                                <label for="txtCodPostal">Cod Postal</label>
-                                <input type="text" id="txtCodPostal" name="txtCodPostal">
+                                <input type="text" id="txtCi" name="txtCi" value="<?= $_SESSION['userData']['user_ci']?>">
                             </div>
                             <div class="box-input">
                                 <label for="txtTelefono">Telefono</label>
-                                <input type="text" name="txtTelefono" id="txtTelefono">
+                                <input type="text" name="txtTelefono" id="txtTelefono" value="<?= $_SESSION['userData']['user_tlf']?>">
                             </div>
-                            <div class="box-input">
-                                <label for="txtEstado">Estado</label>
-                                <select name="listEstado" id="listEstado">
-                                    <option value="0">Seleccione estado</option>
-                                </select>
-                            </div>
-                            <div class="box-input">
-                                <label for="txtCiudad">ciudad</label>
-                                <input type="text" id="txtCiudad" name="txtCiudad">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="box-input">
-                                <label for="txtDireccion">Direccion</label>
-                                <input type="text" name="txtDireccion" id="txtDireccion">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="box-input">
-                                <label class="content-input">
-                                    <input type="checkbox" name="Vehiculo" id="autopista" value="autopista">prueba
-                                    <i></i>
-                                </label>
-                            </div>
-                        </div>
+                            
                         <div class="row">
                             <div class="box-button">
-                                <button class="btn btn-guardar">Guardar</button>
-                                <button class="btn btn-reset">Desechar</button>
+                                <button type="submit" class="btn btn-guardar">Guardar</button>
+                                <button class="btn btn-reset">Cancelar</button>
                             </div>
                         </div>
                     </form>

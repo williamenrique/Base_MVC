@@ -1,3 +1,28 @@
+if (document.querySelector(".formProfile")){
+    var formProfile = document.querySelector('.formProfile')
+    formProfile.onsubmit = (e) => {
+        e.preventDefault()
+        //nos referimos a ese elmento aque lo hemos dado click
+        //creamos un objeto del formulario con los datos haciendo referencia a formData
+        let formData = new FormData(formProfile)
+        //creamos el objeto para os navegadores
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP')
+        var ajaxUrl = base_url + "Usuario/updateData"
+        //abrimos la conexion y enviamos los parametros para la peticion
+        request.open("POST", ajaxUrl, true)
+        request.send(formData)
+        //obtenemos los resultados y evaluamos
+        request.onreadystatechange = () => {
+            if (request.readyState == 4 && request.status == 200) {
+                //obtenemos los datos y convertimos en JSON
+                let objData = JSON.parse(request.responseText)
+                if (objData.status){
+                    notifi(objData.msg,'success')
+                }
+            }
+        }
+    }
+}
 if(document.querySelector('.formImg')){
     /**********************************
  * cargar la imagen para perfil
@@ -15,7 +40,7 @@ if(document.querySelector('.formImg')){
 
     file.addEventListener('change', (e) => {
         /** una sola imagen enviado a base de datos
-         * 	msj.innerText = file.files[0].name;
+         * 	msj.innerText = file.files[0].name
          */
         let thumbnail = document.createElement('div') // generar un elemento
         thumbnail.classList.add('thumbnail', 0) // asignarle una clase y el id
@@ -24,8 +49,8 @@ if(document.querySelector('.formImg')){
         document.getElementById('preview-images').appendChild(thumbnail)
         createClose(0)
 
-        // for (let i = 0; i < file.length; i++) {
-        // 	let thumbnail_id = Math.floor(Math.random() = 30000) + '_' + Date.now();
+        // for (let i = 0 i < file.length i++) {
+        // 	let thumbnail_id = Math.floor(Math.random() = 30000) + '_' + Date.now()
         // 	console.log(thumbnail_id)
         // }
     })
@@ -53,7 +78,7 @@ if(document.querySelector('.formImg')){
     // agregamos al body y action de escucha al momento de cancelar la imagen
     document.body.addEventListener('click', function (e) {
         if (e.target.classList.contains('close-button')) {
-            e.target.parentNode.remove();
+            e.target.parentNode.remove()
             formData.delete(e.target.parentNode.dataset.id)
             file.value = ""
         }
@@ -64,9 +89,8 @@ if(document.querySelector('.formImg')){
      **********************/
     let btnUpImg = document.querySelector('.btnUpImg')
     let formImg = document.querySelector('.formImg')
-
     btnUpImg.addEventListener('click', () => {
-        let ajaxUrl = base_url + 'Usuario/updateImg'
+        let ajaxUrl = base_url + 'Usuario/subirImagen'
         const formdata = new FormData(formImg)
         formdata.append('accion', 'event')
         fetch(ajaxUrl, {
@@ -78,9 +102,9 @@ if(document.querySelector('.formImg')){
             })
             .then((data) => {
                 if (data.status) {
-                    notifi(data.message, 'success')
+                    notifi(data.msg, 'success')
                 } else {
-                    notifi(data.message, 'error')
+                    notifi(data.msg, 'error')
                 }
             })
             .catch((err) => {
